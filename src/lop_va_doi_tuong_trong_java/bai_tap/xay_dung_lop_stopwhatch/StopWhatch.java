@@ -1,6 +1,6 @@
 package lop_va_doi_tuong_trong_java.bai_tap.xay_dung_lop_stopwhatch;
 
-public class StopWhat {
+public class StopWhatch {
     private long startTime = 0;
     private long stopTime = 0;
     private boolean running = false;
