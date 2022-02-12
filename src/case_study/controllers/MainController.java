@@ -1,63 +1,76 @@
 package case_study.controllers;
 
+import case_study.services.impl.CustomerServiceImpl;
+import case_study.services.impl.EmployeeSeviceImpl;
+
 import java.util.Scanner;
 
 public class MainController {
     public static void displayMainMenu(){
         boolean check = true;
         while (check){
-            System.out.println("1. Add New Services");
-            System.out.println("2. Show Services");
-            System.out.println("3. Add New Customer");
-            System.out.println("4. Show Information of Customer");
-            System.out.println("5. Add New Booking");
-            System.out.println("6. Show Information of Employee");
+            System.out.println("1. Employee Management");
+            System.out.println("2. Customer Managerment");
+            System.out.println("3. Facility Managerment");
+            System.out.println("4. Booking Managerment");
+            System.out.println("5. Promotion Mângerment");
             System.out.println("7. Exit");
             Scanner scanner = new Scanner(System.in);
             int number = scanner.nextInt();
             switch (number){
                 case 1:
-                    addNewServices();
+                    displayEmployeeMenu();
                     break;
-
+                case 2:
+                    displayCustomerMenu();
+                    break;
             }
         }
     }
-    public static void addNewServices(){
+
+    public static void displayEmployeeMenu() {
+        EmployeeSeviceImpl employeeSevice = new EmployeeSeviceImpl();
         boolean check = true;
-        while (check){
-            System.out.println("1. Add New Villa");
-            System.out.println("2. Add New House");
-            System.out.println("3. Add New Room");
+        while (check) {
+            System.out.println("1. Display list employees");
+            System.out.println("2. Add new employees");
+            System.out.println("3. Edit employees");
             System.out.println("4. Back to menu");
-            System.out.println("5. Exit");
             Scanner scanner = new Scanner(System.in);
-            int number = scanner.nextInt();
-            switch (number){
-                case 1:
+            switch (scanner.nextInt()) {
+                case 1: {
+                    employeeSevice.display();
+                    break;
+                }
+                case 2: {
+                    employeeSevice.addNew();
+                    break;
+                }
             }
 
         }
     }
 
-
-    public static void showServices(){
+    public static void displayCustomerMenu(){
+        CustomerServiceImpl customerService = new CustomerServiceImpl();
         boolean check = true;
-        while (check){
-            System.out.println("1. Show all Villa");
-            System.out.println("2. Show all House");
-            System.out.println("3. Show all Room");
-            System.out.println("4. Show All Name Villa Not Duplicate");
-            System.out.println("5. Show All Name House Not Duplicate");
-            System.out.println("6. Show All Name Name Not Duplicate");
-            System.out.println("7. Back to menu");
-            System.out.println("8. Exit");
+        while (check) {
+            System.out.println("1. Display list customer");
+            System.out.println("2. Add new customer");
+            System.out.println("3. Edit customer");
+            System.out.println("4. Back to menu");
             Scanner scanner = new Scanner(System.in);
-            int number = scanner.nextInt();
-            switch (number){
-                case 1:
+            switch (scanner.nextInt()) {
+                case 1: {
+                    customerService.display();
+                    break;
+                }
+                case 2: {
+                    customerService.addNew();
+                    break;
+                }
             }
+
         }
     }
-
 }

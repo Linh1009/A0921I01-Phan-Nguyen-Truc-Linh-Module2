@@ -1,5 +1,6 @@
 package case_study.services.impl;
 
+import case_study.models.Customer;
 import case_study.models.Employee;
 import case_study.services.EmployeeSevice;
 
@@ -8,7 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeSeviceImpl implements EmployeeSevice {
-    private static List<EmployeeSevice> employeeSeviceList = new ArrayList<>();
+    private static List<Employee> employeeList = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
     @Override
     public void display() {
@@ -29,13 +30,15 @@ public class EmployeeSeviceImpl implements EmployeeSevice {
         String idCard = scanner.nextLine();
         System.out.println("Nhap email: ");
         String email = scanner.nextLine();
-        System.out.println("Nhap chức vụ: ");
+        System.out.println("Nhập chức vụ: ");
         String level = scanner.nextLine();
-        System.out.println("Nhap vị trí: ");
+        System.out.println("Nhập vị trí: ");
         String position = scanner.nextLine();
-        System.out.println("Nhap mức lương: ");
+        System.out.println("Nhap id: ");
         int salary = Integer.parseInt(scanner.nextLine());
+
         Employee employee = new Employee( id, name, age, sex, idCard, email, level, position, salary);
+        employeeList.add(employee);
     }
 
     @Override
